@@ -31,6 +31,3 @@ prometheus:
 
 reporting:
   productAnalytics: false
-
-tolerations:
-  - operator: 'Exists'
