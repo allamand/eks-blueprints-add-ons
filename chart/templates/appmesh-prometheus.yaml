@@ -1,0 +1,33 @@
+{{- if and (.Values.appMesh) (.Values.appMesh.enable) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: appmesh-prometheus
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repoUrl }}
+    path: add-ons/appmesh-prometheus
+    targetRevision: {{ .Values.targetRevision }}
+    helm:
+      values: |
+        appmesh-prometheus:
+        {{- toYaml .Values.appMeshPrometheus | nindent 10 }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: appmesh-system
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace={{ .Values.appMesh.createNamespace }}
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}
