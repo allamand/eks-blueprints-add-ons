@@ -1,4 +1,4 @@
 appmesh-prometheus:
   serviceAccount:
     create: false
-    name: "app-mesh-prometheus-sa"
+    name: 'app-mesh-prometheus'
