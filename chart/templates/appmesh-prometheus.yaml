@@ -16,6 +16,9 @@ spec:
       values: |
         appmesh-prometheus:
         {{- toYaml .Values.appMeshPrometheus | nindent 10 }}
+      parameters:
+      - name: appmesh-prometheus.serviceAccount.name
+        value: {{ .Values.appMeshPrometheus.serviceAccountName }}        
   destination:
     server: https://kubernetes.default.svc
     namespace: appmesh-system
