@@ -20,7 +20,7 @@ spec:
       - name: appmesh-prometheus.serviceAccount.name
         value: {{ .Values.appMeshPrometheus.serviceAccountName }}  
       - name: appmesh-prometheus.serviceAccount.create
-        value: {{ .Values.appMeshPrometheus.serviceAccountCreate }}              
+        value: "{{ .Values.appMeshPrometheus.serviceAccountCreate }}"             
   destination:
     server: https://kubernetes.default.svc
     namespace: appmesh-system
