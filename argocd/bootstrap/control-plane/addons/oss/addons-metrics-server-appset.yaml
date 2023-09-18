@@ -60,7 +60,8 @@ spec:
         namespace: '{{values.addonChartNamespace}}'
         name: '{{name}}'
       syncPolicy:
-        automated: {}
+        automated:
+          prune: true
         syncOptions:
           - CreateNamespace=true
           - ServerSideApply=true # Big CRDs.
