@@ -18,7 +18,7 @@ spec:
                 # anything not staging or prod use this version
                 addonChartVersion: 1.13.1
                 #addonChartRepository: https://kubernetes-sigs.github.io/external-dns
-                addonChartRepository: public.ecr.aws/seb-demo/external-dns
+                addonChartRepository: public.ecr.aws/seb-demo
 
               selector:
                 matchExpressions:
