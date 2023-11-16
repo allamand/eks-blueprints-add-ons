@@ -62,6 +62,7 @@ spec:
               - $values/{{.metadata.annotations.addons_repo_basepath}}clusters/{{.name}}/addons/{{.values.addonChart}}/values.yaml
             values: |
               provider: aws
+              logLevel: debug
               serviceAccount:
                 name: {{.metadata.annotations.external_dns_service_account}}
                 annotations:
