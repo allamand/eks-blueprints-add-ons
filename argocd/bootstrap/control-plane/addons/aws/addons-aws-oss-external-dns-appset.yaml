@@ -70,6 +70,7 @@ spec:
               domainFilters: 
                 - {{ default "" .metadata.annotations.eks_cluster_domain }}
               txtOwnerId: {{.metadata.annotations.aws_cluster_name}}
+              txtPrefix: "lattice"
               policy: {{ default "upsert-only" .metadata.annotations.external_dns_policy }}
               sources:
                 - service
