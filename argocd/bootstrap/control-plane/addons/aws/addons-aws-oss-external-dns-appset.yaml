@@ -69,7 +69,7 @@ spec:
                   eks.amazonaws.com/role-arn: {{.metadata.annotations.external_dns_iam_role_arn}}
               domainFilters: 
                 - {{ default "" .metadata.annotations.eks_cluster_domain }}
-                - {{ default "" .metadata.annotations.dns_private_domain }}
+                {{ if index .metadata.annotations "eks_cluster_domain" }}- {{ default "" .metadata.annotations.dns_private_domain }}{{ end }}
               txtOwnerId: {{.metadata.annotations.aws_cluster_name}}
               txtPrefix: "lattice"
               policy: {{ default "upsert-only" .metadata.annotations.external_dns_policy }}
