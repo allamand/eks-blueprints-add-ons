@@ -17,7 +17,7 @@ spec:
                 #addonChartRepositoryNamespace: aws-application-networking-k8s
                 addonChartRepositoryNamespace: seb-demo
                 # anything not staging or prod use this version
-                addonChartVersion: v0.0.105
+                addonChartVersion: v0.0.106
                 #addonChartVersion: v1.0.0
                 # using oci repostory already configure in argocd
                 # argocd repo add public.ecr.aws --type helm --name aws-public-ecr --enable-oci
@@ -67,7 +67,6 @@ spec:
               clusterVpcId: {{metadata.annotations.aws_vpc_id}}
               clusterName: {{.metadata.annotations.aws_cluster_name}}
               defaultServiceNetwork: "test-sn"
-              #latticeEndpoint: 
               log:
                 level: debug
               serviceAccount:
