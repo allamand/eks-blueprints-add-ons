@@ -17,7 +17,7 @@ spec:
                 #addonChartRepositoryNamespace: aws-application-networking-k8s
                 addonChartRepositoryNamespace: seb-demo
                 # anything not staging or prod use this version
-                addonChartVersion: v0.0.103
+                addonChartVersion: v0.0.104
                 #addonChartVersion: v1.0.0
                 # using oci repostory already configure in argocd
                 # argocd repo add public.ecr.aws --type helm --name aws-public-ecr --enable-oci
