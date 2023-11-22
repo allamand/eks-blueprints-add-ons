@@ -68,7 +68,7 @@ spec:
               awsAccountId: {{.metadata.annotations.aws_account_id}}
               clusterVpcId: {{.metadata.annotations.aws_vpc_id}}
               clusterName: {{.metadata.annotations.aws_cluster_name}}
-              defaultServiceNetwork: {{.metadata.annotations.default_lattice_service_network}}
+              defaultServiceNetwork: {{.metadata.annotations.lattice_default_service_network}}
               log:
                 level: debug
               serviceAccount:
