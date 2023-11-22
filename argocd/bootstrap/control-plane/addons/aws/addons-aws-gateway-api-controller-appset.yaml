@@ -16,11 +16,11 @@ spec:
               values:
                 addonChart: aws-gateway-controller-chart
                 addonChartReleaseName: aws-gateway-api-controller
-                #addonChartRepositoryNamespace: aws-application-networking-k8s
-                addonChartRepositoryNamespace: seb-demo
+                addonChartRepositoryNamespace: aws-application-networking-k8s
+                #addonChartRepositoryNamespace: seb-demo
                 # anything not staging or prod use this version
-                addonChartVersion: v0.0.107
-                #addonChartVersion: v1.0.0
+                #addonChartVersion: v0.0.107
+                addonChartVersion: v1.0.1
                 # using oci repostory already configure in argocd
                 # argocd repo add public.ecr.aws --type helm --name aws-public-ecr --enable-oci
                 addonChartRepository: public.ecr.aws
