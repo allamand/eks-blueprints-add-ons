@@ -65,7 +65,7 @@ spec:
               - $values/{{.metadata.annotations.addons_repo_basepath}}clusters/{{.name}}/addons/{{.values.addonChartReleaseName}}/values.yaml
             values: |
               awsRegion: {{.metadata.annotations.aws_region}}
-              awsAccountId: {{.metadata.annotations.aws_account_id}}
+              awsAccountId: "{{.metadata.annotations.aws_account_id}}"
               clusterVpcId: {{.metadata.annotations.aws_vpc_id}}
               #clusterName: {{.metadata.annotations.aws_cluster_name}} #Cluster name is not required for EKs clusters
               defaultServiceNetwork: {{.metadata.annotations.lattice_default_service_network}}
