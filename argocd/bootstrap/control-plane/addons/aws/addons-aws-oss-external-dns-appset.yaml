@@ -16,10 +16,9 @@ spec:
               values:
                 addonChart: external-dns
                 # anything not staging or prod use this version
-                #addonChartVersion: 1.13.1
-                addonChartVersion: 1.12.20 # seb hack
-                #addonChartRepository: https://kubernetes-sigs.github.io/external-dns
-                addonChartRepository: public.ecr.aws/seb-demo
+                addonChartVersion: 1.14.2
+                addonChartRepository: https://kubernetes-sigs.github.io/external-dns
+                #addonChartRepository: public.ecr.aws/seb-demo
 
               selector:
                 matchExpressions:
@@ -34,13 +33,13 @@ spec:
                 matchLabels:
                   environment: staging
               values:
-                addonChartVersion: 1.13.1
+                addonChartVersion: 1.14.2
           - clusters:
               selector:
                 matchLabels:
                   environment: prod
               values:
-                addonChartVersion: 1.13.1
+                addonChartVersion: 1.14.2
   template:
     metadata:
       name: 'addon-{{.name}}-{{.values.addonChart}}'
@@ -77,8 +76,9 @@ spec:
                 - service
                 - ingress
                 - crd
-              crdSourceApiversion: externaldns.k8s.io/v1alpha1
-              crdSourceKind: DNSEndpoint
+              extraArgs:
+                - --crdSourceApiversion=externaldns.k8s.io/v1alpha1
+                - --crdSourceKind=DNSEndpoint 
       destination:
         namespace: '{{.metadata.annotations.external_dns_namespace}}'
         name: '{{.name}}'
